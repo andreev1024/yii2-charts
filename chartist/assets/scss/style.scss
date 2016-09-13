@@ -1,0 +1,21 @@
+@import "./../../../../../bower/chartist/dist/scss/chartist.scss";
+
+$ct-legend: ct-legend !default;
+$ct-legend-marker: ct-legend-marker !default;
+
+//  add styles for legend items
+@if $ct-include-colored-series {
+  @for $i from 0 to length($ct-series-names) {
+    .#{$ct-legend} .#{$ct-class-series}-#{nth($ct-series-names, $i + 1)} {
+      $color: nth($ct-series-colors, $i + 1);
+      background-color: $color;
+    }
+  }
+
+  .#{$ct-legend-marker} {
+    width: 1em;
+    height:1em;
+    display: inline-block;
+    margin-right: 1em;
+  }
+}
